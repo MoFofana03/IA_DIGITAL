@@ -1,0 +1,14 @@
+{
+  "name": "IYA Digital",
+  "short_name": "IYA Digital",
+  "description": "Agence de création digitale à Conakry — Créer. Innover. Communiquer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0D24",
+  "theme_color": "#0A0D24",
+  "lang": "fr",
+  "icons": [
+    { "src": "assets/img/favicon_192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/img/favicon_512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

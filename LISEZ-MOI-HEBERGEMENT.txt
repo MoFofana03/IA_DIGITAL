@@ -1,0 +1,88 @@
+SITE WEB IYA DIGITAL — GUIDE DE MISE EN LIGNE
+=============================================
+
+Le site est 100 % statique (HTML, CSS, JavaScript) : pas de base de données,
+pas de PHP, aucun abonnement obligatoire. Il fonctionne chez n'importe quel hébergeur.
+
+
+1. AVANT DE METTRE EN LIGNE (5 minutes)
+---------------------------------------
+a) Votre nom de domaine
+   Le domaine www.iyadigital.com est déjà renseigné. Si l'adresse change, remplacez-la
+   dans ces 3 fichiers (Rechercher / Remplacer dans le Bloc-notes) :
+     - index.html
+     - robots.txt
+     - sitemap.xml
+
+b) Vos coordonnées, réseaux, projets et tarifs
+   Tout se règle dans assets/js/config.js (Bloc-notes ou VS Code) :
+     - whatsapp, telephone, email, messageWhatsApp
+     - reseaux : adresses Facebook / Instagram / TikTok / LinkedIn (laisser '' pour masquer)
+     - projetsRealises : chiffre affiché « +100 projets réalisés »
+     - projets : un bloc { ... } par projet. Pour en retirer un, supprimez son bloc ;
+       pour en ajouter un, copiez un bloc existant et changez slug, titre, images…
+       « une: true » = affiché sur l'accueil (les 3 premiers). L'ordre de la liste
+       est l'ordre de la page Projets (12 visibles, puis « Voir les autres projets »).
+     - tarifs : 4 onglets (identité, community management, vidéo, web).
+       Les prix sont des nombres en francs guinéens, sans espaces (ex. 495000).
+       Les prix identité viennent de votre grille ; ceux du community management,
+       de la vidéo et du web sont des propositions à ajuster.
+   La couverture de chaque projet est son logo : assets/img/couvertures/<slug>.jpg (1200 × 900).
+   Les autres images des projets sont dans assets/img/projets/<slug>/,
+   les logos de la bande « Ils nous font confiance » dans assets/img/logos/.
+
+
+2. METTRE EN LIGNE — 3 OPTIONS
+------------------------------
+OPTION A — Hébergement classique (cPanel : o2switch, Hostinger, LWS, hébergeur local…)
+   1. Connectez-vous à cPanel > Gestionnaire de fichiers > dossier public_html
+   2. Envoyez TOUT le contenu du dossier 07_Site_Web (pas le dossier lui-même) :
+      index.html, 404.html, .htaccess, robots.txt, sitemap.xml, site.webmanifest, assets/
+      Astuce : compressez le contenu en .zip, envoyez-le, puis « Extraire » dans cPanel.
+   3. Activez le certificat SSL gratuit (Let's Encrypt / AutoSSL) dans cPanel,
+      puis décommentez les 3 lignes « Forcer HTTPS » dans .htaccess.
+   Le fichier .htaccess active la compression et le cache (site plus rapide).
+
+OPTION B — Netlify (gratuit, le plus simple)
+   1. Allez sur https://app.netlify.com/drop
+   2. Glissez-déposez le dossier 07_Site_Web dans la page
+   3. Le site est en ligne en 30 secondes. Ajoutez ensuite votre domaine
+      dans Site settings > Domain management (HTTPS automatique).
+
+OPTION C — Cloudflare Pages, Vercel ou GitHub Pages
+   Déposez le dossier tel quel : aucune configuration nécessaire.
+
+
+3. APRÈS LA MISE EN LIGNE
+-------------------------
+   - Testez sur téléphone : menu, vidéos, bouton WhatsApp, formulaire.
+   - Ajoutez l'adresse du site sur votre page Facebook (À propos > Site web).
+   - Déclarez le site sur Google Search Console (https://search.google.com/search-console)
+     et envoyez le sitemap : https://www.iyadigital.com/sitemap.xml
+   - Créez une fiche Google Business Profile « IYA Digital » à Conakry.
+
+
+4. MODIFIER LE SITE PLUS TARD
+-----------------------------
+   - Le site a 6 pages : #accueil, #services (avec #tarifs), #projets, #projet-<slug>,
+     #agence, #contact. Elles sont toutes dans index.html (une <div class="view"> par page).
+   - Textes : dans index.html (chaque section est commentée : HÉROS, MANIFESTE, EXPERTISES…)
+   - Couleurs et styles : assets/css/style.css (jetons de couleur en haut du fichier)
+   - Après une modification du CSS ou du JS, changez le numéro de version dans index.html
+     (ex. style.css?v=6 → style.css?v=7) pour que les visiteurs voient la nouvelle version.
+
+
+5. CE QUE LE SITE FAIT
+----------------------
+   - Préchargeur animé (première visite seulement), symbole IYA qui s'assemble
+     et réagit à la souris, trame de pixels interactive, défilement fluide
+   - Expertises synchronisées avec les facettes du symbole
+   - Vidéos lues automatiquement à l'écran (son activable)
+   - Pages séparées avec transition animée, projets filtrables et fiche détaillée par projet
+   - Grille de tarifs en GNF avec bouton « Choisir ce pack » qui ouvre WhatsApp
+   - Formulaire qui ouvre WhatsApp avec le message déjà rédigé (aucune donnée stockée)
+   - Adapté mobile, tablette, ordinateur ; respecte le réglage « réduire les animations »
+   - Référencement : balises Google, aperçu de partage Facebook/WhatsApp, données structurées
+   - Polices et librairies hébergées localement : aucune dépendance externe
+
+Librairies incluses : GSAP 3.12 (ScrollTrigger, Flip) et Lenis — gratuites, usage commercial autorisé.
